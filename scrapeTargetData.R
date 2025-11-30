@@ -2,6 +2,7 @@
 
 library(jsonlite)
 library(rvest)
+library(readr)
 
 egg_url <- "https://redsky.target.com/redsky_aggregations/v1/web/pdp_client_v1?key=9f36aeafbe60771e321a7cc95a78140772ab3e96&tcin=94684060&is_bot=false&store_id=1137&pricing_store_id=1137" #322
 milk_url <- "https://redsky.target.com/redsky_aggregations/v1/web/pdp_client_v1?key=9f36aeafbe60771e321a7cc95a78140772ab3e96&tcin=94800147&is_bot=false&store_id=1137&pricing_store_id=1137" #322
@@ -73,5 +74,6 @@ output_file <- "raw_price_data/raw_target_data.csv"
 if(!dir.exists("raw_price_data")) {
   dir.create("raw_price_data")
 }
+
 
 write_csv(price_df, output_file)
