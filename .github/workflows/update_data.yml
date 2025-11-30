@@ -32,6 +32,7 @@ jobs:
           any::stringr
           any::jsonlite
           any::rvest
+          any::httr
 
     - name: Run Walmart Scrape Script
       run: Rscript scrapeWalmartData.R
