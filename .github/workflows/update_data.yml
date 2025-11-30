@@ -34,8 +34,8 @@ jobs:
           any::rvest
           any::httr
 
-    - name: Run Walmart Scrape Script
-      run: Rscript scrapeWalmartData.R
+    - name: Run Amazon Scrape Script
+      run: Rscript scrapeAmazonData.R
 
     - name: Run Target Scrape Script
       run: Rscript scrapeTargetData.R
