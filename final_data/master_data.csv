@@ -1,0 +1,10 @@
+Date,Product_Name,Amazon_Price,Target_Price,price_diff,abs_diff,percent_diff,cheaper
+2025-11-30,Vital Farms Pasture Raised Eggs,8.49,6.89,1.6000000000000005,1.6000000000000005,-18.845700824499417,Target
+2025-11-30,Horizon Organic High Vitamin D Milk,6.29,6.29,0,0,0,Target
+2025-11-30,Nature's Own Honey Wheat Bread,0.16,3.69,-3.53,3.53,2206.25,Amazon
+2025-11-30,Kraft Singles American Cheese Slices,4.12,4.89,-0.7699999999999996,0.7699999999999996,18.689320388349504,Amazon
+2025-11-30,Fresh Lemon,0.79,0.69,0.10000000000000009,0.10000000000000009,-12.658227848101278,Target
+2025-11-30,Fresh Navel Orange,1.99,0.89,1.1,1.1,-55.276381909547744,Target
+2025-11-30,Fresh Gala Apple,20.15,0.79,19.36,19.36,-96.079404466501245,Target
+2025-11-30,Fresh Organic Roma Tomatoes,2.99,2.99,0,0,0,Target
+2025-11-30,Fresh Iceberg Lettuce Head,4.19,2.69,1.5000000000000004,1.5000000000000004,-35.79952267303103,Target
