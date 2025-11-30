@@ -1,0 +1,58 @@
+name: Update Price Data
+
+on:
+  schedule:
+    # Runs once every 24 hours at Midnight
+    - cron: "0 5 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v4
+
+    - name: Set up R
+      uses: r-lib/actions/setup-r@v2
+      with:
+        use-public-rspm: true
+
+    - name: Install R dependencies
+      uses: r-lib/actions/setup-r-dependencies@v2
+      with:
+        packages: |
+          any::dplyr
+          any::readr
+          any::tidyr
+          any::ggplot2
+          any::stringr
+          any::jsonlite
+          any::rvest
+
+    - name: Run Walmart Scrape Script
+      run: Rscript scrapeWalmartData.R
+
+    - name: Run Target Scrape Script
+      run: Rscript scrapeTargetData.R
+
+    - name: Run Clean Script
+      run: Rscript clean_price_data.R
+
+    - name: Run Update Master Script
+      run: Rscript update_master_data.R
+
+    - name: Commit Updated CSV and Visualizations
+      run: |
+        git config user.name 'github-actions[bot]'
+        git config user.email 'github-actions[bot]@users.noreply.github.com'
+        git add raw_price_data/
+        git add clean_price_data/
+        git add final_data/
+        git add plots/
+        git diff --staged --quiet || git commit -m "Auto update: $(date)"
+        git push
+          
