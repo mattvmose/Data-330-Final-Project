@@ -3,6 +3,19 @@
 library(rvest)
 library(dplyr)
 library(readr)
+library(httr)
+
+# Sets config to use across all HTTP requests
+set_config(
+  config(
+    useragent="Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
+    httpheader = c(
+      "Accept" = "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+      "Accept-Language" = "en-US,en;q=0.5",
+      "Referer" = "https://walmart.com/"
+    )
+  )
+)
 
 egg_url <- "https://www.walmart.com/ip/Vital-Farms-Pasture-Raised-Grade-A-Large-Brown-Eggs-12-Count/115864065"
 milk_url <- "https://www.walmart.com/ip/Horizon-Organic-High-Vitamin-D-Whole-Milk-High-Vitamin-D-Whole-128-fl-oz-Jug/350048336"
@@ -16,55 +29,55 @@ lettuce_url <- "https://www.walmart.com/ip/Fresh-Iceberg-Lettuce-Each/10402650"
 
 
 # Eggs
-egg_page <- read_html(egg_url)
+egg_page <- GET(egg_url) |> read_html()
 egg_price <- html_element(egg_page, "span.inline-flex.flex-column") |> html_text()
 egg_name <- html_element(egg_page, "h1#main-title.dark-gray.mv1.lh-copy.f4.mh0.b") |> html_text()
 Sys.sleep(5)
 
 # Milk
-milk_page <- read_html(milk_url)
+milk_page <- GET(milk_url) |> read_html()
 milk_price <- html_element(milk_page, "span.inline-flex.flex-column") |> html_text()
 milk_name <- html_element(milk_page, "h1#main-title.dark-gray.mv1.lh-copy.f4.mh0.b") |> html_text()
 Sys.sleep(5)
 
 # Breads
-bread_page <- read_html(bread_url)
+bread_page <- GET(bread_url) |> read_html()
 bread_price <- html_element(bread_page, "span.inline-flex.flex-column") |> html_text()
 bread_name <- html_element(bread_page, "h1#main-title.dark-gray.mv1.lh-copy.f4.mh0.b") |> html_text()
 Sys.sleep(5)
 
 # Cheese
-cheese_page <- read_html(cheese_url)
+cheese_page <- GET(cheese_url) |> read_html()
 cheese_price <- html_element(cheese_page, "span.inline-flex.flex-column") |> html_text()
 cheese_name <- html_element(cheese_page, "h1#main-title.dark-gray.mv1.lh-copy.f4.mh0.b") |> html_text()
 Sys.sleep(5)
 
 # Lemons
-lemon_page <- read_html(lemon_url)
+lemon_page <- GET(lemon_url) |> read_html()
 lemon_price <- html_element(lemon_page, "span.inline-flex.flex-column") |> html_text()
 lemon_name <- html_element(lemon_page, "h1#main-title.dark-gray.mv1.lh-copy.f4.mh0.b") |> html_text()
 Sys.sleep(5)
 
 # Oranges
-orange_page <- read_html(orange_url)
+orange_page <- GET(orange_url) |> read_html()
 orange_price <- html_element(orange_page, "span.inline-flex.flex-column") |> html_text()
 orange_name <- html_element(orange_page, "h1#main-title.dark-gray.mv1.lh-copy.f4.mh0.b") |> html_text()
 Sys.sleep(5)
 
 # Apples
-apple_page <- read_html(apple_url)
+apple_page <- GET(apple_url) |> read_html()
 apple_price <- html_element(apple_page, "span.inline-flex.flex-column") |> html_text()
 apple_name <- html_element(apple_page, "h1#main-title.dark-gray.mv1.lh-copy.f4.mh0.b") |> html_text()
 Sys.sleep(5)
 
 # Tomatoes
-tomato_page <- read_html(tomato_url)
+tomato_page <- GET(tomato_url) |> read_html()
 tomato_price <- html_element(tomato_page, "span.inline-flex.flex-column") |> html_text()
 tomato_name <- html_element(tomato_page, "h1#main-title.dark-gray.mv1.lh-copy.f4.mh0.b") |> html_text()
 Sys.sleep(5)
 
 # Lettuce
-lettuce_page <- read_html(lettuce_url)
+lettuce_page <- GET(lettuce_url) |> read_html()
 lettuce_price <- html_element(lettuce_page, "span.inline-flex.flex-column") |> html_text()
 lettuce_name <- html_element(lettuce_page, "h1#main-title.dark-gray.mv1.lh-copy.f4.mh0.b") |> html_text()
 Sys.sleep(5)
@@ -86,3 +99,4 @@ if(!dir.exists("raw_price_data")) {
 
 
 write_csv(price_df, output_file)
+
