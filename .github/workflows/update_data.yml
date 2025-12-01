@@ -54,6 +54,7 @@ jobs:
         git add clean_price_data/
         git add final_data/
         git add plots/
+        git add debug/
         git diff --staged --quiet || git commit -m "Auto update: $(date)"
         git push
           
