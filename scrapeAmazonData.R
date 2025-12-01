@@ -48,7 +48,7 @@ urls <- c(
   "https://a.co/d/9OyGmY0" #Lettuce
 )
 
-all_results <- tibble(Product_Name = character(), Product_Price = numeric())
+all_results <- tibble(Product_Name = character(), Product_Price = character())
 
 # Loop through each URL and add results to tibble
 for (u in urls) {
@@ -63,5 +63,6 @@ if (!dir.exists("raw_price_data")) {
 }
 
 write_csv(all_results, output_file)
+
 
 
