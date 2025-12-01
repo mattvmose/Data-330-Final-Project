@@ -15,8 +15,8 @@ normalize_date <- function(df) {
 
 # Calculating Metrics
 add_metrics <- function(df) {
-  if (!is.numeric(df$Amazon_Price)) {
-    df <- df |> mutate(Amazon_Price = as.numeric(Amazon_Price))
+  if (!is.numeric(df$Safeway_Price)) {
+    df <- df |> mutate(Safeway_Price = as.numeric(Safeway_Price))
   }
   if (!is.numeric(df$Target_Price)) {
     df <- df |> mutate(Target_Price = as.numeric(Target_Price))
@@ -24,10 +24,10 @@ add_metrics <- function(df) {
   
   df |>
     mutate(
-      price_diff = Amazon_Price - Target_Price,
+      price_diff = Safeway_Price - Target_Price,
       abs_diff = abs(price_diff),
-      percent_diff = (Target_Price - Amazon_Price) / Amazon_Price*100,
-      cheaper = if_else(Amazon_Price < Target_Price, "Amazon", "Target")
+      percent_diff = (Target_Price - Safeway_Price) / Safeway_Price*100,
+      cheaper = if_else(Safeway_Price < Target_Price, "Safeway", "Target")
     )
 }
 
@@ -49,7 +49,7 @@ append_master <- function(today_data, master_file) {
 # Plotting price trends
 plot_trends <- function(df, output_file = "plots/price_trends.png") {
   plot_data <- df |>
-    pivot_longer(cols = c(Amazon_Price, Target_Price),
+    pivot_longer(cols = c(Safeway_Price, Target_Price),
                  names_to = "Source", values_to = "Price")
   plot <- ggplot(plot_data, aes(x=Date, y=Price, color=Source, group=Source)) +
     geom_line() +
