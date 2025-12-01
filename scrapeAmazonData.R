@@ -21,6 +21,16 @@ scrape_amazon_fresh <- function(url) {
       "Referer" = "https://www.amazon.com/"
     )
   )
+  html_text <- content(response, as="text")
+  
+  #Debugging
+  if(!dir.exists("debug")) {
+    dir.create("debug")
+  }
+  file <- paste0("debug/", gsub("[^A-Za-z0-9]", "_", basename(u)), ".html")
+  
+  #Save HTML snapshot
+  writeLines(html_text, file)
   
   html <- read_html(response)
  
@@ -64,6 +74,7 @@ if (!dir.exists("raw_price_data")) {
 }
 
 write_csv(all_results, output_file)
+
 
 
 
