@@ -5,6 +5,7 @@ library(rvest)
 library(httr)
 library(dplyr)
 library(jsonlite)
+library(readr)
 
 # Function to scrape product page
 scrape_safeway <- function(url) {
@@ -64,4 +65,5 @@ if(!dir.exists("raw_price_data")) {
 }
 
 write_csv(safeway_data, output_file)
+
 
