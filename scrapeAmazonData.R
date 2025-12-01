@@ -43,6 +43,7 @@ scrape_amazon_fresh <- function(url) {
   }
   
   tibble(Product_Name = name, Product_Price = price)
+  Sys.sleep(10)
 }
 
 #URLs for Amazon Products
@@ -74,6 +75,7 @@ if (!dir.exists("raw_price_data")) {
 }
 
 write_csv(all_results, output_file)
+
 
 
 
