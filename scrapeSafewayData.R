@@ -16,6 +16,12 @@ scrape_safeway <- function(url) {
   json_blocks <- page |>
     html_nodes("script[type='application/ld+json']") |>
     html_text()
+
+  # JSON protection
+  if (length(json_blocks) < 2 || any(is.na(json_blocks))) {
+    warning(paste("No valid JSON found at:", url))
+    return(tibble(Date = Sys.Date(), Product_Name = NA, Product_Price = NA))
+  }
   
   #Parsing first JSON block
   product_name <- fromJSON(json_blocks[1])
@@ -58,3 +64,4 @@ if(!dir.exists("raw_price_data")) {
 }
 
 write_csv(safeway_data, output_file)
+
