@@ -48,8 +48,13 @@ urls <- c(
   "https://a.co/d/9OyGmY0" #Lettuce
 )
 
-results <- bind_rows(lapply(urls, scrape_amazon_fresh)) |>
-  mutate(Date = Sys.Date())
+all_results <- tibble(Product_Name = character(), Product_Price = numeric())
+
+# Loop through each URL and add results to tibble
+for (u in urls) {
+  scraped <- scrape_amazon_fresh(u)
+  all_results <- bind_rows(all_results, scraped)
+}
 
 # Append to CSV
 output_file <- "raw_price_data/raw_amazon_data.csv"
@@ -57,5 +62,6 @@ if (!dir.exists("raw_price_data")) {
   dir.create("raw_price_data")
 }
 
-write_csv(results, output_file)
+write_csv(all_results, output_file)
+
 
