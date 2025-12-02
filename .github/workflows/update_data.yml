@@ -34,11 +34,14 @@ jobs:
           any::rvest
           any::httr
 
-    - name: Run Safeway Scrape Script
-      run: Rscript scrapeSafewayData.R
+    - name: Run East Coast Target Script
+      run: Rscript scrapeEastTargetData.R
 
-    - name: Run Target Scrape Script
-      run: Rscript scrapeTargetData.R
+    - name: Run West Coast Target Script
+      run: Rscript scrapeWestTargetData.R
+
+    - name: Run Cost Of Living Script
+      run: Rscript scrapeCOL.R
 
     - name: Run Clean Script
       run: Rscript clean_price_data.R
