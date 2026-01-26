@@ -470,9 +470,18 @@ Date,Product_Name,East_Price,West_Price,Cost_Of_Living,price_diff,percent_diff,c
 2026-01-25,Vital Farms Pasture Raised Eggs,4.82,8.39,4.4,3.5700000000000003,74.06639004149378,East Coast
 2026-01-25,Horizon Organic High Vitamin D Milk,6.29,5.99,1.06,0.2999999999999998,-4.769475357710649,West Coast
 2026-01-25,Nature's Own Honey Wheat Bread,3.69,3.69,3.31,0,0,West Coast
-2026-01-25,Kraft Singles American Cheese Slices,3.99,4.19,5.89,0.20000000000000018,5.012531328320806,East Coast
+2026-01-25,Kraft Singles American Cheese Slices,3.99,4.19,5.89,0.20000000000000015,5.012531328320806,East Coast
 2026-01-25,Fresh Banana,0.29,0.29,0.76,0,0,West Coast
 2026-01-25,Fresh Navel Orange,0.89,0.89,2.01,0,0,West Coast
 2026-01-25,Fresh Gala Apple,0.79,0.79,2.37,0,0,West Coast
-2026-01-25,Fresh Organic Roma Tomatoes,2.99,2.29,2.21,0.7000000000000002,-23.411371237458198,West Coast
+2026-01-25,Fresh Organic Roma Tomatoes,2.99,2.29,2.21,0.7000000000000002,-23.4113712374582,West Coast
 2026-01-25,Fresh Iceberg Lettuce Head,1.99,1.99,2.22,0,0,West Coast
+2026-01-26,Vital Farms Pasture Raised Eggs,4.82,5.87,4.4,1.0499999999999998,21.784232365145222,East Coast
+2026-01-26,Horizon Organic High Vitamin D Milk,6.29,5.99,1.06,0.2999999999999998,-4.769475357710649,West Coast
+2026-01-26,Nature's Own Honey Wheat Bread,3.69,3.69,3.31,0,0,West Coast
+2026-01-26,Kraft Singles American Cheese Slices,3.99,4.19,5.89,0.20000000000000018,5.012531328320806,East Coast
+2026-01-26,Fresh Banana,0.29,0.29,0.76,0,0,West Coast
+2026-01-26,Fresh Navel Orange,0.89,0.89,2.01,0,0,West Coast
+2026-01-26,Fresh Gala Apple,0.79,0.79,2.37,0,0,West Coast
+2026-01-26,Fresh Organic Roma Tomatoes,2.99,2.29,2.21,0.7000000000000002,-23.411371237458198,West Coast
+2026-01-26,Fresh Iceberg Lettuce Head,1.99,1.99,2.22,0,0,West Coast
